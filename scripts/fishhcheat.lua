@@ -1602,7 +1602,7 @@ getsenv(LocalPlayer.PlayerGui.GUI.Client.Functions.Weapons).returndamagemod = fu
 		return math.huge
 	end
 	return returndamagemod(...)
-end)
+end
 
 	
 task.spawn(function() while task.wait(Options.ChatSpamDelay.Value) do
