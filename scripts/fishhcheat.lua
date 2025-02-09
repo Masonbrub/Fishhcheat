@@ -1595,15 +1595,14 @@ RunService.RenderStepped:Connect(function()
 	end
 end)
 
---[[ swift exeshitter doesnt seem to support getsenv properly
+ --swift exeshitter doesnt seem to support getsenv properly
 local returndamagemod = getsenv(LocalPlayer.PlayerGui.GUI.Client.Functions.Weapons).returndamagemod
 getsenv(LocalPlayer.PlayerGui.GUI.Client.Functions.Weapons).returndamagemod = function(...)
 	if Toggles.InfDamage.Value then
 		return math.huge
 	end
 	return returndamagemod(...)
-end
-]]
+end)
 
 	
 task.spawn(function() while task.wait(Options.ChatSpamDelay.Value) do
