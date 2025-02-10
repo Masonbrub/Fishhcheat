@@ -1680,6 +1680,7 @@ index = hookmetamethod(game, "__index", newcclosure(function(self, key)
 				return Options.FirerateAmount.Value
 			end
 		end]]
+				
         if Toggles.Wallbang.Value and key == "Clips" then
             return workspace.Map
         end
