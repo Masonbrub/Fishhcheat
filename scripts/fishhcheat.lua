@@ -293,7 +293,7 @@ GB_Aimbot:AddSlider('AimbotFOV', {Text = 'FOV', Default = 60, Min = 1, Max = 90,
 GB_Aimbot:AddToggle('AimbotShowFOV', { Text = 'Show FOV Circle', Default = false, Tooltip = 'Draw FOV Circle on screen'})
 GB_Aimbot:AddDivider() -- FINISH THIS!
 GB_Aimbot:AddToggle('AimbotLegitMelee', { Text = 'Legit Melee', Default = true, Tooltip = 'Enable distance check for melee'})
-GB_Aimbot:AddLabel('Fishhcheat is a free script available only on GitHub and v3rmillion. Do not use any other links!\nMade by FishhHvH', true)
+GB_Aimbot:AddLabel('Skibidicheat is a free script available only on GitHub and v3rmillion. Do not use any other links!\nMade by FishhHvH', true)
 
 local GB_Hitbox = Tabs.Aim:AddRightGroupbox('Hitbox')
 GB_Hitbox:AddToggle('HBEToggle', { Text = 'Hitbox Expander', Default = false, Tooltip = 'Toggle hitbox expanding'}):AddKeyPicker('HBEBind', { Default = 'None', NoUI = false, Mode = 'Always', Text = 'HBE Key' })
@@ -1070,7 +1070,7 @@ function Visuals(Player)
                     highlight.FillTransparency = 0
                     highlight.OutlineTransparency = 0
                     highlights[Player.Name] = highlight
-                    --highlight.Adornee = Base
+                    highlight.Adornee = Base
                 end                
 
                 if highlights[Player.Name] then
@@ -1416,15 +1416,15 @@ local GetClosestToMouse = function(TargetPart)
 	
 	for i,v in next, Players:GetPlayers() do
 		if v.Character and v.Character:GetAttribute("isAlive") == true and v.Team ~= LocalPlayer.Team and not (Toggles.AimIgnoreInvis.Value and v.Character["UpperTorso"].Transparency > .9) and not (Toggles.AimIgnoreFriends.Value and LocalPlayer:IsFriendsWith(v.UserId) or MarkedPlayers[v.UserId] == "Ignored") then 
-			--if Toggles.AimIgnoreInvis.Value and v.Character["UpperTorso"].Transparency > .9 then continue end
-			--if Toggles.AimIgnoreFriends.Value and (LocalPlayer:IsFriendsWith(v.UserId) or MarkedPlayers[v.UserId] == "Ignored") then continue end
+			if Toggles.AimIgnoreInvis.Value and v.Character["UpperTorso"].Transparency > .9 then continue end
+			if Toggles.AimIgnoreFriends.Value and (LocalPlayer:IsFriendsWith(v.UserId) or MarkedPlayers[v.UserId] == "Ignored") then continue end
 			
 			local ToTarget = TargetPart or "Head"
 			local Selected = v.Character:FindFirstChild(ToTarget)
 			if Selected then
 				local SelectedToViewPort,IsVisible = Camera:WorldToViewportPoint(Selected.Position)
 				local Magnitude = (MouseLocation - Vector2.new(SelectedToViewPort.X,SelectedToViewPort.Y)).Magnitude -- we get distance from screen
-				--if Toggles.AimbotOnlyFOVVis.Value and Magnitude > Options.AimbotFOV.Value * 12.5 then continue end
+				if Toggles.AimbotOnlyFOVVis.Value and Magnitude > Options.AimbotFOV.Value * 12.5 then continue end
 				if not IsVisible and Toggles.AimbotOnlyFOVVis.Value then continue end
 				if Magnitude < Closest and not (Toggles.AimbotOnlyFOVVis.Value and (Magnitude > Options.AimbotFOV.Value * 12.5)) then                            
 					local RaycastParams = RaycastParams.new()
