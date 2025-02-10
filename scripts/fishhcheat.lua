@@ -395,10 +395,9 @@ GB_WeaponMods:AddToggle('InfAmmo', { Text = 'Infinite Ammo', Default = false, To
 GB_WeaponMods:AddToggle('InfCloak', { Text = 'Infinite Cloak', Default = false, Tooltip = 'Infinite cloak for Agent'})
 GB_WeaponMods:AddToggle('InfCharge', { Text = 'Infinite Shield Charge', Default = false, Tooltip = 'Infinite charge for Annihilator shields'}) -- Possibly detected
 GB_WeaponMods:AddToggle('MaxBuildings', { Text = 'Instant LVL 3 Buildings', Default = false, Tooltip = "Mechanic buildings will instantly be lvl 3 once deployed"})
---[[GB_WeaponMods:AddToggle('FirerateChanger', { Text = 'Firerate Modifier', Default = false, Tooltip = 'Modify the firerate of most weapons'})
+GB_WeaponMods:AddToggle('FirerateChanger', { Text = 'Firerate Modifier', Default = false, Tooltip = 'Modify the firerate of most weapons'})
 GB_WeaponMods:AddSlider('FirerateAmount', {Text = 'Firerate', Default = 0.2, Min = 0.1, Max = 1, Rounding = 2, Compact = true})
 -- fakeaxis fight me irl
-]]
 
 Toggles.AlwaysBackstab:OnChanged(function() -- Always Backstab
 	if Toggles.AlwaysBackstab.Value then
