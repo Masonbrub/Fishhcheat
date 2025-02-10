@@ -167,7 +167,11 @@ local Killsay = {
 	"Go to sleep.",
 	"you are DED! not big surprise.",
 	"ggez no re",
-	"Went to n00b town, everyone knew your name."
+	"Went to n00b town, everyone knew your name.",
+	"GET REKT N00B",
+	"LOL TRICKSTAB",
+	"yee didly",
+	"are you trash? cuz i just took you out",
 }
 
 local Deathsay = {
@@ -178,24 +182,27 @@ local Deathsay = {
 	"Next time's the charm.",
 	"This is rather embarrasing.",
 	"YEEEEOUWCH",
-	"It appears our team's doctor has quit."	
+	"It appears our team's doctor has quit."
+	"STOPPING CHEATTINGGGG!!",
+	"I hat you",
+	":(",
 }
 
 
 local ChatSpam = {
 	"Not to worry team, I'm a garbage collector. I'm used to carrying trash.",
-	"GET GOOD GET FISHHCHEAT",
-	"FISHHCHEAT - ONE STEP AHEAD OF THE GAME",
+	"GET GOOD GET SKIBIDICHEAT",
+	"GYATTCHEAT - ONE STEP AHEAD OF THE GAME",
 	"I'm not hacking, i am just cheating.",
 	"*JAMACIAN SMILE ACTIVATED* those who know...",
-	"XATAWARE BEST HACK TC2 2023",
+	"LMAOWARE BEST HACK TF2 2017",
 	"I bought a property in Egypt and what they do for you is they give you the property",
 	"wait... why are we playing a chinese ripoff of TF2?",
 	"FISH FOR PRESIDENT 2029",
 	"--- SIGMAHACK EXECUTED ---",
 	"game:GetService('Byfron'):Destroy() EZEZEZ BYPASS",
 	"ain't no party like a bibulus party",
-	"For every Fishhcheat purchase, we donate to Israel.",
+	"For every sigmacheat purchase, we donate to Israel.",
 	":3",
 	"The FitnessGram Pacer test, ever heard of it?",
 	"NONAMES RISE UP",
@@ -388,9 +395,10 @@ GB_WeaponMods:AddToggle('InfAmmo', { Text = 'Infinite Ammo', Default = false, To
 GB_WeaponMods:AddToggle('InfCloak', { Text = 'Infinite Cloak', Default = false, Tooltip = 'Infinite cloak for Agent'})
 GB_WeaponMods:AddToggle('InfCharge', { Text = 'Infinite Shield Charge', Default = false, Tooltip = 'Infinite charge for Annihilator shields'}) -- Possibly detected
 GB_WeaponMods:AddToggle('MaxBuildings', { Text = 'Instant LVL 3 Buildings', Default = false, Tooltip = "Mechanic buildings will instantly be lvl 3 once deployed"})
-GB_WeaponMods:AddToggle('FirerateChanger', { Text = 'Firerate Modifier', Default = false, Tooltip = 'Modify the firerate of most weapons'})
+--[[GB_WeaponMods:AddToggle('FirerateChanger', { Text = 'Firerate Modifier', Default = false, Tooltip = 'Modify the firerate of most weapons'})
 GB_WeaponMods:AddSlider('FirerateAmount', {Text = 'Firerate', Default = 0.2, Min = 0.1, Max = 1, Rounding = 2, Compact = true})
 -- fakeaxis fight me irl
+]]
 
 Toggles.AlwaysBackstab:OnChanged(function() -- Always Backstab
 	if Toggles.AlwaysBackstab.Value then
@@ -1684,11 +1692,11 @@ end))
 local index -- Firerate changer and Wallbang
 index = hookmetamethod(game, "__index", newcclosure(function(self, key)
     if not Library.Unloaded then
-		if key == "Value" and self:IsA("ValueBase") and not checkcaller() then
+		--[[if key == "Value" and self:IsA("ValueBase") and not checkcaller() then
 			if self.Name:lower():match("firerate") and Toggles.FirerateChanger.Value and not self.Parent:FindFirstChild("Projectile") then
 				return Options.FirerateAmount.Value
 			end
-		end
+		end]]
         if Toggles.Wallbang.Value and key == "Clips" then
             return workspace.Map
         end
