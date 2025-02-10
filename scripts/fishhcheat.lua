@@ -1695,8 +1695,7 @@ index = hookmetamethod(game, "__index", newcclosure(function(self, key)
 			if self.Name:lower():match("firerate") and Toggles.FirerateChanger.Value and not self.Parent:FindFirstChild("Projectile") then
 				return Options.FirerateAmount.Value
 			end
-		end]]
-				
+		end]]		
         if Toggles.Wallbang.Value and key == "Clips" then
             return workspace.Map
         end
