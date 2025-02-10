@@ -1691,19 +1691,11 @@ end))
 local index -- Firerate changer and Wallbang
 index = hookmetamethod(game, "__index", newcclosure(function(self, key)
     if not Library.Unloaded then
-		Options.MG_fireratemultiplier:OnChanged(function()
-    for _,v in game.ReplicatedStorage.Weapons:GetChildren() do
-        for _,x in v:GetChildren() do
-            if x.Name == "FireRate" then
-                if v:FindFirstChild("Projectile") then
-                    x.Value = math.clamp(x._.Value / Options.MG_fireratemultiplier.Value, 0.1, 9e9)
-                else
-                    x.Value = x._.Value / Options.MG_fireratemultiplier.Value
-                end
-            end
-        end
-    end
-end
+		--[[if key == "Value" and self:IsA("ValueBase") and not checkcaller() then
+			if self.Name:lower():match("firerate") and Toggles.FirerateChanger.Value and not self.Parent:FindFirstChild("Projectile") then
+				return Options.FirerateAmount.Value
+			end
+		end]]
 				
         if Toggles.Wallbang.Value and key == "Clips" then
             return workspace.Map
